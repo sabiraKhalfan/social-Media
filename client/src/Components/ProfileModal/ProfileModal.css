@@ -1,0 +1,10 @@
+.space{
+    display: flex;
+    gap:1rem;
+}
+.images{
+    display: flex;
+    flex-direction: column;
+    gap:.5rem;
+
+}
