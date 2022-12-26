@@ -3,7 +3,7 @@ import Profile from './../img/profileImg.jpg'
 import './PostShare.css'
 import { UilScenery } from '@iconscout/react-unicons'
 import { UilPlayCircle } from '@iconscout/react-unicons'
-import { UilLocationPoint } from '@iconscout/react-unicons'
+//import { UilLocationPoint } from '@iconscout/react-unicons'
 import { UilSchedule } from '@iconscout/react-unicons'
 import { UilTimes } from '@iconscout/react-unicons'
 import { useState, useRef } from 'react'
@@ -12,13 +12,14 @@ import { uploadImage,uploadPost } from '../Actions/UploadAction';
 const serverPublic = process.env.REACT_APP_PUBLIC_FOLDER;
 
 const PostShare = () => {
+   
     const dispatch =useDispatch();
     const loading =useSelector((state)=>state.postReducer.uploading)
     const [Image, setImage] = useState(null)
-
+   
+   
     const desc = useRef();
-    const { user } = useSelector((state) => state.authReducer.authData);
-
+    const { user } = useSelector((state) => state.authReducer.authData)
     const onImageChange = (event) => {
         if (event.target.files && event.target.files[0]) {
             let img = event.target.files[0]
@@ -31,6 +32,7 @@ const PostShare = () => {
         setImage(null);
         desc.current.value="";
     }
+    
     const ImageRef = useRef();
   // handle post upload
     const handleUpload =async (e) => {
@@ -38,17 +40,21 @@ const PostShare = () => {
 
         //post data
         const newPost = {
+         
             userId: user._id,
             desc: desc.current.value
 
         };//if there is an image with post
+       // console.log("ethiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii");
         if (Image) {
+
+           
             const data = new FormData();
             const fileName = Date.now() + Image.name;
             data.append("name", fileName);
             data.append("file", Image);
             newPost.Image = fileName;
-            console.log(newPost);
+            //console.log(newPost,"newwwwwwpostttttt");
             try {
               dispatch(uploadImage(data));
               
@@ -57,6 +63,7 @@ const PostShare = () => {
             }
           }
           dispatch(uploadPost(newPost));
+        
           reset();
           
 
@@ -79,17 +86,14 @@ const PostShare = () => {
                     <div className="Options" style={{ color: "var(--photo)" }}
                         onClick={() => ImageRef.current.click()}>
                         <UilScenery />
+            Photo
+          </div>
 
-                        Photo
-                    </div>
-                    <div className="Options" style={{ color: "var(--video)" }}>
-                        <UilPlayCircle />
-                        Video
-                    </div>
-                    <div className="Options" style={{ color: "var(--location)" }}>
-                        <UilLocationPoint />
-                        Location
-                    </div>
+          <div className="option" style={{ color: "var(--video)" }}>
+            <UilPlayCircle />
+            Video
+          </div>
+                    
                     <div className="Options" style={{ color: "var(schedule)" }}>
                         <UilSchedule />
                         Schedule

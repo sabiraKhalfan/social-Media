@@ -3,8 +3,25 @@
     flex-direction: column;
     padding: 1rem;
     background-color:var(--cardColor);
+    border-radius: 1rem;
     gap:1rem;
 
+}
+.icon{
+    display: flex;
+    flex-direction: row;
+    
+}
+
+comment{
+    z-index: 99;
+}
+
+.edits{
+    display: flex;
+
+    justify-content:right;
+    
 }
 .Post>img{
     width:100%;

@@ -53,8 +53,8 @@
 }
 .PreviewImage>svg{
     position:absolute;
-    right:21rem;
-    top:6rem;
+    right:1rem;
+    top:.5rem;
     cursor: pointer;
 }
 .PreviewImage>img{

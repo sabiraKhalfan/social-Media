@@ -2,8 +2,15 @@
   "name": "starter",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "proxy": "http://localhost:5000",
   "dependencies": {
+    "@babel/compat-data": "7.19.4",
+    "@babel/core": "7.19.6",
+    "@babel/generator": "7.19.6",
+    "@babel/helper-compilation-targets": "7.19.3",
+    "@babel/helper-create-class-features-plugin": "7.19.0",
+    "@babel/helper-module-transforms": "7.19.6",
     "@iconscout/react-unicons": "^1.1.6",
     "@mantine/core": "^4.2.1",
     "@mantine/hooks": "^4.2.1",
@@ -11,9 +18,11 @@
     "@testing-library/react": "^12.0.0",
     "@testing-library/user-event": "^13.2.1",
     "axios": "^0.27.2",
+    "babel-preset-es2015": "^6.24.1",
     "firebase": "^9.15.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-icons": "^4.7.1",
     "react-redux": "^8.0.5",
     "react-router-dom": "6",
     "react-scripts": "^2.1.3",
@@ -45,5 +54,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/preset-react": "^7.18.6"
   }
 }

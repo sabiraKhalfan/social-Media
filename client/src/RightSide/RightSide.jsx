@@ -1,10 +1,9 @@
 import React ,{useState} from 'react'
 import './RightSide.css'
 import Home from './../img/home.png'
-import { UilSetting } from '@iconscout/react-unicons'
-import Comment from './../img/comment.png'
-import Noti from './../img/noti.png'
-import TrendCard from '../TrendCard/TrendCard'
+import FollowersCard from '../Components/FollowersCard/FollowersCard'
+import comment from './../img/comment.png'
+
 import ShareModal from '../Components/ShareModal/ShareModal'
 import {Link} from 'react-router-dom'
 
@@ -12,18 +11,22 @@ const RightSide = () => {
     const [show,setShow] = useState(false)
     return (
         <div className="RightSide">
-            <div className="NavIcon">
+            <div className="navIcons">
             <Link to ="../home">
                 <img src={Home} alt="" />
               </Link>
+              <Link to ='../chat'>
+              <img src={comment} alt = ""  /> 
 
-                <UilSetting />
-                <img src={Noti} alt="" />
-                <img src={Comment} alt="" />
-
+              </Link>
+            
             </div>
-            <TrendCard/>
-            <button className='button r-button' onClick={()=>setShow(true)}>Share</button>
+            
+            <div>
+              <FollowersCard/>
+
+              </div>
+        
             <ShareModal show={show}
             setShow={setShow}/>
 
